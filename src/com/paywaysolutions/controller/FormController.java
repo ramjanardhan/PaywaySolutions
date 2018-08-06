@@ -1,6 +1,7 @@
 package com.paywaysolutions.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.paywaysolutions.model.RegistrationModel;
+import com.paywaysolutions.util.DataSourceDataProvider;
 
 @Controller
 public class FormController {
+
 @Autowired
-RegistrationService register;
+FormControlService formService;
+
 	 @RequestMapping(path= "/registration",method=RequestMethod.POST)    
 
 	    public ModelAndView greet(@ModelAttribute("customer")RegistrationModel rModel){
@@ -25,8 +29,8 @@ RegistrationService register;
 	       System.out.println("email is "+rModel.getEmail());
 	       System.out.println("mobile number is "+rModel.getMobile());
 	       System.out.println("alternate mobile number is "+rModel.getMobile1());
-	       register.registerUser(rModel);
-
+	       formService.addPerson(rModel);
+	       
 	        return new ModelAndView("greet","message","received!!");
 
 	    }
