@@ -1,34 +1,23 @@
 package com.paywaysolutions.entity;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-@Entity
-@Table(name="register_users")
+
 public class ResgisterUsers {
-	@Id
-	 @GeneratedValue(strategy=GenerationType.AUTO)
-	 @Column(name = "id")
+	
 	 private Integer id;
 	
-	@Column(name="firstname")
 	 private String firstName;
 	 
-	 @Column(name="lastname")
+	
 	 private String lastName;
 	 
-	 @Column(name="email")
 	 private String email;
 	 
-	 @Column(name="password")
+	
 	 private String password;
 	 
-	 @Column(name="mobile")
+	
 	 private Long mobile;
 	 
-	 @Column(name="mobile1")
+	
 	 private Long mobile1;
 
 	public Integer getId() {
@@ -85,6 +74,24 @@ public class ResgisterUsers {
 
 	public void setMobile1(Long mobile1) {
 		this.mobile1 = mobile1;
+	}
+
+	public ResgisterUsers(Integer id, String firstName, String lastName, String email, String password, Long mobile,
+			Long mobile1) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.mobile = mobile;
+		this.mobile1 = mobile1;
+	}
+
+	@Override
+	public String toString() {
+		return "ResgisterUsers [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ", mobile=" + mobile + ", mobile1=" + mobile1 + "]";
 	}
 	 
 	 

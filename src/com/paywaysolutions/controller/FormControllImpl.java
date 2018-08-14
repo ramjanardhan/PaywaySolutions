@@ -4,19 +4,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.paywaysolutions.model.RegistrationModel;
-import com.paywaysolutions.persistance.RegistrationService;
+import com.paywaysolutions.model.SignInModel;
+import com.paywaysolutions.persistance.DAOService;
 import com.paywaysolutions.util.DataSourceDataProvider;
 
 @Service
 public class FormControllImpl implements FormControlService{
 	@Autowired
-	RegistrationService register;
+	DAOService register;
 	@Autowired
 	DataSourceDataProvider dsdp;
 	@Override
 	public void addPerson(RegistrationModel registrationModel) {
 		
-		register.registerUser(dsdp.modelToEntity(registrationModel));
+		register.registerUser(registrationModel);
+	}
+	@Override
+	public String retrieveUser(SignInModel singIn) {
+		return	register.retrieveUser(singIn);
+		 
 	}
 
 }

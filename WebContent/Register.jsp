@@ -241,14 +241,14 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
 			<div class="modal-body">
-				<form action="#" method="post">
+				<form action="/FinanacialAdvisor/signin" method="post">
 					<div class="form-group">
 						<i class="fa fa-user"></i>
-						<input type="text" class="form-control" placeholder="Enter Your Email Id" required="required">
+						<input type="text" class="form-control" name="userName" id="userName" placeholder="Enter Your Email Id" required="required">
 					</div>
 					<div class="form-group">
 						<i class="fa fa-lock"></i>
-						<input type="password" class="form-control" placeholder="Enter Your Password" required="required">					
+						<input type="password" class="form-control" name="password" id="password" placeholder="Enter Your Password" required="required">					
 					</div>
 					<div class="form-group">
 						<input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
