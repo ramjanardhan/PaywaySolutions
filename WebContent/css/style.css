@@ -59,8 +59,9 @@ footer {background:#504842 url(../images/bottombg.jpg) repeat-x; color:#666;}
 #credits {background:#2d2724; padding:10px; text-align:center; color:#ccc;}
 footer a, #bottom a, #credits a {color:#fff; text-decoration:none!important;}
 .normalpage {background:url(../images/normalpagebg.png) center top no-repeat; padding-top:13px;}
-.normalpage .subhead {background: url(../images/graybgtop.gif) center bottom no-repeat; height:60px; line-height:60px; text-align:center; margin:0 0 1px 0!important; color:#251f1b!important;}
-.subhead h2 {font-size:1.8em!important;}
+.normalpage .subhead {background: url(../images/graybgtop.gif) center bottom no-repeat; height:60px; line-height:60px; text-align:center; margin:0 0 1px 0!important; }
+
+.subhead h2 {background-color:  #D55739;font-size:1.8em!important;}
 .post {padding:10px 25px; background:url(../images/graybgtop.gif) center bottom no-repeat; margin-bottom:15px;}
 .post h3 {font:bold 1.8em 'TeXGyreAdventor', Arial, sans-serif; color:#d35537; margin-bottom:15px;}
 .post p {margin-bottom:15px;}
