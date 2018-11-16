@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>PayWay Financial Solutions</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <style>/* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
@@ -20,7 +21,7 @@ input[type=text], select, textarea {
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit] {
+#submit {
 	background-color: #4CAF50;
 	color: white;
 	padding: 12px 20px;
@@ -73,7 +74,7 @@ input[type=submit]:hover {
 					<!-- <div> <input type="submit" value="Submit"> -->
 
 					<div class="container">
-						<form action="action_page.php">
+						<form action="">
 
 							<label for="name">Name</label> <input type="text" id="name"
 								name="name" placeholder="Your name.."> <label
@@ -91,7 +92,8 @@ input[type=submit]:hover {
 								<option value="Personal">Personal Loan</option>
 								<option value="Education">Education Loan</option>
 								<option value="Mortgage">Mortagage Loan</option>
-							</select> <input type="submit" value="Submit">
+							</select> <input type="button" id="submit" value="Submit">
+							
 
 						</form>
 					</div>
@@ -115,7 +117,28 @@ input[type=submit]:hover {
 				Solutions</a>
 		</div>
 	</footer>
+<script>
+$("#submit").click(function (){
 
+	alert("in click");
+	
+	$.ajax({
+	    type: 'POST',
+	    url: 'http://localhost:8081/FinanacialAdvisor/mail/sendMail',
+	    data: JSON.stringify ({ customerName: $("#name").val(), customerMobileNo: $("#mobile").val(),customerMailID :$("#email").val(),customerAddress:$("#address").val(),loanType:$("#loan").val() }), // or JSON.stringify ({name: jonas}),
+	    success: function(data) { alert('data: ' + data); },
+	    contentType: "application/json",
+	    dataType: 'json'
+	});
+	
+	
+// 	$.post( "http://localhost:8081/FinanacialAdvisor/mail/sendMail", JSON.stringify({ customerName: "John", customerMobileNo: "2pm",customerMailID :"t.midhilesh@gmail.com",customerAddress:"NA",loanType:"Home" }))
+// 	.done(function( data ) {
+// 	  alert( "Data Loaded: " + data );
+// 	});	
+})
+
+</script>
 </body>
 
 </html>
